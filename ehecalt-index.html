@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ehecalt Campos - Fotógrafo, Chef, Emprendedor. De perder esperanza a construir un legado. Fotografía audiovisual, turismo, blockchain y IA. HUB CUZAMIL.">
+    <title>Ehecalt Campos | Fotógrafo & Chef Emprendedor | HUB CUZAMIL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4741e;
+            --secondary: #1e3a5f;
+            --accent: #2d7a4a;
+            --gold: #f4a460;
+            --dark: #1a1a1a;
+            --light: #f9f9f9;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text);
+            background: linear-gradient(180deg, #faf6f0 0%, #f5ede4 100%);
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 237, 228, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            margin-top: 90px;
+            min-height: calc(100vh - 90px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-content .name {
+            color: var(--primary);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            animation: slideInLeft 0.8s ease-out 0.15s both;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe5c6 100%);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.8s ease-out 0.3s both;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.2rem;
+            animation: slideInLeft 0.8s ease-out 0.45s both;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.95rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #e8882d);
+            color: white;
+            box-shadow: 0 8px 25px rgba(212, 116, 30, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 116, 30, 0.35);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .avatar-box {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(30, 58, 95, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 3rem;
+            animation: slideInLeft 0.8s ease-out 0.6s both;
+        }
+
+        .stat {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--primary);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            font-weight: 500;
+        }
+
+        .story {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            margin-top: 5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .story h2 {
+            font-size: 2.3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .story-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .story-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .journey-list {
+            list-style: none;
+            margin-top: 2.5rem;
+        }
+
+        .journey-list li {
+            padding: 0.9rem 0;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .journey-list li::before {
+            content: '→';
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #e8882d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .story-image {
+            background: linear-gradient(135deg, var(--gold), var(--primary));
+            border-radius: 20px;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.3rem;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+            height: 300px;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .services {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            padding: 2.2rem;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #fef5e7 0%, #fef9f3 100%);
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(212, 116, 30, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .values {
+            padding: 5.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-box {
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #fef5e7 0%, #fff0d9 100%);
+            border-radius: 16px;
+            border-left: 5px solid var(--accent);
+            text-align: center;
+        }
+
+        .value-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .value-box p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-final {
+            padding: 5.5rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            margin: 5rem auto;
+            border-radius: 25px;
+            max-width: 1200px;
+        }
+
+        .cta-final h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .cta-final .cta-group {
+            justify-content: center;
+        }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text strong {
+            color: var(--primary);
+        }
+
+        .footer-motto {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.8rem 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                margin-top: 80px;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">📸 Ehecalt Campos</div>
+        <nav>
+            <a href="#story">Mi Historia</a>
+            <a href="#portfolio">Portafolio</a>
+            <a href="#services">Servicios</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🌟 Emprendedor & Soñador Real</div>
+            <h1>Hola, soy <span class="name">Ehecalt</span></h1>
+            <div class="subtitle">Fotógrafo, Chef & Emprendedor Digital</div>
+            <p>Perdí la esperanza de estudiar. Luego descubrí la IA, el blockchain y mis pasiones. Ahora estoy de vuelta en la escuela, <strong>emprendiendo, trabajando y soñando</strong> sin dejar nada atrás. Mi historia es tu prueba: <strong>sí se puede.</strong></p>
+
+            <div class="cta-group">
+                <a href="https://wa.me/529871178201?text=Hola%20Ehecalt%2C%20vi%20tu%20landing%20y%20me%20gustaría%20hablar%20contigo" class="btn btn-primary" target="_blank">
+                    📱 Hablemos por WhatsApp
+                </a>
+                <a href="mailto:ehecalt@cuzamil.io" class="btn btn-secondary">
+                    ✉️ Envíame un email
+                </a>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Pasión por crear</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">✓</div>
+                    <div class="stat-label">Transformación en proceso</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="avatar-box">
+            <img src="ehecalt-main.jpeg" alt="Ehecalt Campos">
+        </div>
+    </section>
+
+    <section class="story" id="story">
+        <h2>Mi Camino de Transformación</h2>
+        <div class="story-grid">
+            <div class="story-text">
+                <p>Mi nombre es <strong>Ehecalt Campos</strong>. Hace poco tiempo <strong>perdí la esperanza</strong> de seguir estudiando. Sentía que la educación no me llevaba a ningún lado.</p>
+                
+                <p>Pero entonces descubrí <strong>la inteligencia artificial, el blockchain y la tecnología</strong>. Eso cambió todo. Me reencontré con mis pasiones: <strong>la fotografía, la música, la naturaleza, las tradiciones ancestrales.</strong></p>
+
+                <p>Hoy estoy <strong>estudiando de nuevo</strong>. No solo eso: estoy <strong>emprendiendo con HUB CUZAMIL, trabajando como chef en un restaurant, aprendiendo de Legado Vivo</strong> y soñando con tener mi propio restaurante que combine lo tradicional maya con lo argentino.</p>
+
+                <p>Mi prueba de que <strong>es posible tenerlo todo: estudiar, trabajar, emprender y vivir tus pasiones</strong> sin dejar nada atrás.</p>
+
+                <ul class="journey-list">
+                    <li>Chef (Restaurant Argentino-Maya)</li>
+                    <li>Fotógrafo profesional audiovisual</li>
+                    <li>Emprendedor digital (HUB CUZAMIL)</li>
+                    <li>Estudiante (Bachillerato + Licenciatura)</li>
+                    <li>Aprendiz de Blockchain & IA</li>
+                    <li>Soñador de Legado Vivo</li>
+                </ul>
+            </div>
+            <div class="story-image">
+                <img src="ehecalt-pier.jpeg" alt="Ehecalt en muelle">
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <h2 class="section-title">Mi Trabajo Fotográfico</h2>
+        <p style="text-align: center; margin-bottom: 3rem; font-size: 1.05rem; color: var(--text-light);">Cada foto cuenta una historia. Cada imagen captura un momento de transformación, naturaleza y esperanza.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="ehecalt-sunset1.jpeg" alt="Atardecer en Cozumel">
+            </div>
+            <div class="portfolio-card">
+                <img src="ehecalt-sunset2.jpeg" alt="Amanecer">
+            </div>
+            <div class="portfolio-card">
+                <img src="ehecalt-pier.jpeg" alt="Muelle y reflexión">
+            </div>
+            <div class="portfolio-card">
+                <img src="ehecalt-nature.jpeg" alt="Naturaleza y respeto">
+            </div>
+            <div class="portfolio-card">
+                <img src="ehecalt-main.jpeg" alt="Momento de conexión">
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title">¿Qué Ofrezco?</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Fotografía Profesional</h3>
+                <p>Sesiones fotográficas, eventos, turismo y contenido audiovisual para tus negocios con visibilidad garantizada.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎥</div>
+                <h3>Contenido Audiovisual</h3>
+                <p>Videos, reels, historias visuales que conviertan visitantes en clientes. Contenido que vende.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌎</div>
+                <h3>Fotografía de Turismo</h3>
+                <p>Recorridos turísticos fotografiados. Captura la esencia de Cozumel para tus clientes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>Estrategia Digital & IA</h3>
+                <p>Automatización de ventas, blockchain, inteligencia artificial para escalar tu negocio.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💡</div>
+                <h3>Mentoría Emprendedora</h3>
+                <p>He vivido tu historia. Puedo ayudarte a transformarla en éxito real, sin atajos falsos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Legado Vivo</h3>
+                <p>Parte de realdream.club. Vendemos de verdad, automatizamos inteligente, construimos legados reales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <h2 class="section-title">Mi Filosofía</h2>
+        <div class="values-grid">
+            <div class="value-box">
+                <div class="value-emoji">🌿</div>
+                <h3>Respeto por la Vida</h3>
+                <p>Cada proyecto, cada cliente, cada fotografía tiene propósito. Sin dañar, solo construir.</p>
+            </div>
+            <div class="value-box">
+                <div class="value-emoji">🏛️</div>
+                <h3>Tradiciones Ancestrales</h3>
+                <p>Temazkalli, cultura maya, valores que nos anclan. Lo antiguo no compite con lo nuevo.</p>
+            </div>
+            <div class="value-box">
+                <div class="value-emoji">🎵</div>
+                <h3>Pasión Auténtica</h3>
+                <p>Música, artesanía, naturaleza. Si no late, no lo hago. La energía se contagia.</p>
+            </div>
+            <div class="value-box">
+                <div class="value-emoji">⛓️</div>
+                <h3>Blockchain & IA</h3>
+                <p>La tecnología es herramienta, no religión. Sirve a la vida real, no al revés.</p>
+            </div>
+            <div class="value-box">
+                <div class="value-emoji">📚</div>
+                <h3>Educación + Emprendimiento</h3>
+                <p>Prueba viva: se puede estudiar, trabajar y emprender al mismo tiempo sin fracasar.</p>
+            </div>
+            <div class="value-box">
+                <div class="value-emoji">🍽️</div>
+                <h3>Sueño: Mi Restaurante</h3>
+                <p>Fusión Argentino-Maya. Chef hoy, dueño mañana. Los sueños grandes necesitan caminos pequeños.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final" id="contact">
+        <h2>¿Listo Para Tu Transformación?</h2>
+        <p>Mi historia no es excepcional. Es lo que pasa cuando dejas de esperar permiso y empiezas a construir. Yo perdí la esperanza. Luego la recuperé. Ahora ayudo a otros a encontrar la suya.</p>
+        <div class="cta-group">
+            <a href="https://wa.me/529871178201?text=Hola%20Ehecalt%2C%20quiero%20hablar%20contigo%20sobre%20fotografía%20y%20emprendimiento" class="btn btn-primary" target="_blank">
+                💬 Escribirme por WhatsApp
+            </a>
+            <a href="mailto:ehecalt@cuzamil.io" class="btn btn-secondary">
+                📧 Enviarme un email
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-text">© 2026 <strong>Ehecalt Campos</strong> | HUB CUZAMIL - Empoderamiento Social para Cozumel</div>
+        <div class="footer-motto">"Deja tu legado vivo y logra tu sueño en vida"</div>
+        <div class="social-links">
+            <a href="https://wa.me/529871178201" target="_blank">WhatsApp</a>
+            <a href="mailto:ehecalt@cuzamil.io">Email</a>
+            <a href="https://realdream.club/legadovivo" target="_blank">Legado Vivo</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
